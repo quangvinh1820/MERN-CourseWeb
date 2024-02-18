@@ -21,6 +21,7 @@ const Dashboard = () => {
                                 <a href="#" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                         className="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                             </div>
+                            
                             <div className="row">
                                 <div className="col-xl-3 col-md-6 mb-4">
                                     <div className="card border-left-primary shadow h-100 py-2">

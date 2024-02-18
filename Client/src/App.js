@@ -4,7 +4,6 @@ import CoursesPage from "./pages/CoursesPage";
 import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
 import TestimonialPage from "./pages/TestimonialPage";
-import CreatePage from "./pages/CreatePage";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import Cart from "./pages/CartPage/Cart";
 import Register from "./pages/Register";
@@ -28,7 +27,6 @@ const App = () => {
         <Route path="/team" element={<TeamPage/>}/>
         <Route path="/testimonial" element={<TestimonialPage/>}/>
         <Route path="/contact" element={<ContactPage/>}/>
-        <Route path="/create" element={<CreatePage/>}/>
         <Route path="/courses/:id" element={<DetailPage/>}/>
         <Route path="/cart/:id" element={<Cart/>}/>
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />

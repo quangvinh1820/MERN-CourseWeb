@@ -6,12 +6,15 @@ import { useLocation } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import './cart.css';
 import React, { useEffect, useState } from 'react';
+import { checkout } from "../../redux/apiCalls";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
   const [cart, setCart] = useState({});
   const location = useLocation();
   const id = location.pathname.split('/')[2];
-
+  const dispatch = useDispatch();
+  
   useEffect(() => {
     const getCart = async () => {
       try {
@@ -23,6 +26,11 @@ const Cart = () => {
     };
     getCart();
   }, [id]);
+
+  const handleCheckout = async () => {
+    checkout(dispatch, cart)
+};
+
   return (
     <div>
       <Header />
@@ -43,7 +51,7 @@ const Cart = () => {
                   <span className="text-primary">{cart.price} đ</span>
                 </div>
               </div>
-                <button className="get-payment text-primary">Lấy thông tin thanh toán</button>
+                <button className="get-payment text-primary" onClick={handleCheckout}>Lấy thông tin thanh toán</button>
             </div>
             <div className="col-lg-6 col-md-6 wow zoomIn" data-wow-delay="0.7s" style={{minHeight: '350px'}} >
               <div className="benefit-wrapper">

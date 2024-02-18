@@ -1,4 +1,18 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../redux/apiCalls";
+
 const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const { isFetching, error } = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        login(dispatch, {username, password});
+    }
+
     return (
         <div className="bg-gradient-primary">
             <div className="container">
@@ -15,13 +29,23 @@ const Login = () => {
                                             </div>
                                             <form className="user">
                                                 <div className="form-group">
-                                                    <input type="email" className="form-control form-control-user"
-                                                        id="exampleInputEmail" aria-describedby="emailHelp"
-                                                        placeholder="Enter Email Address..."/>
+                                                    <input
+                                                    type="text"
+                                                    className="form-control form-control-user"
+                                                    id="exampleInputEmail"
+                                                    aria-describedby="emailHelp"
+                                                    placeholder="Enter Username or Email..."
+                                                    onChange={(e) => setUsername(e.target.value)}
+                                                    />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input type="password" className="form-control form-control-user"
-                                                        id="exampleInputPassword" placeholder="Password"/>
+                                                    <input
+                                                    type="password"
+                                                    className="form-control form-control-user"
+                                                    id="exampleInputPassword"
+                                                    placeholder="Password"
+                                                    onChange={(e) => setPassword(e.target.value)}
+                                                    />
                                                 </div>
                                                 <div className="form-group">
                                                     <div className="custom-control custom-checkbox small">
@@ -30,9 +54,18 @@ const Login = () => {
                                                             Me</label>
                                                     </div>
                                                 </div>
-                                                <a href="index.html" className="btn btn-primary btn-user btn-block">
+                                                <button
+                                                className="btn btn-primary btn-user btn-block"
+                                                onClick={handleClick}
+                                                disabled={isFetching}
+                                                >
                                                     Login
-                                                </a>
+                                                </button>
+                                                {error && (
+                                                    <span style={{color: "red"}}>
+                                                        You are not admin!!
+                                                    </span>
+                                                )}
                                                 <hr/>
                                                 <a href="index.html" className="btn btn-google btn-user btn-block">
                                                     <i className="fab fa-google fa-fw"></i> Login with Google
@@ -44,9 +77,6 @@ const Login = () => {
                                             <hr/>
                                             <div className="text-center">
                                                 <a className="small" href="forgot-password">Forgot Password?</a>
-                                            </div>
-                                            <div className="text-center">
-                                                <a className="small" href="register">Create an Account!</a>
                                             </div>
                                         </div>
                                     </div>

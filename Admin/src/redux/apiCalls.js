@@ -8,6 +8,11 @@ import {
     logout,
 } from "./userRedux";
 
+import {
+    dataStart, 
+    dataSuccess, 
+    dataFailure } from "./coursesRedux";
+
 import { publicRequest } from "../requestMethod";
 
 export const login = async (dispatch, user) => {
@@ -34,11 +39,13 @@ export const exitLgout = (dispatch) => {
     dispatch(logout())
 };
 
-export const checkout = async (dispatch, cartItems) => {
+// Create Course
+export const create = async (dispatch, courses) => {
+    dispatch(dataStart());
     try {
-        const res = await publicRequest.post("/payment/checkout", { cartItems });
-        return res.data;
-    } catch (error) {
-        throw error;
+        const res = await publicRequest.post("/courses/", courses);
+        dispatch(dataSuccess(res.data));
+    } catch (err) {
+        dispatch(dataFailure());
     }
 };

@@ -11,17 +11,23 @@ import BackToTop from "../components/BackToTop";
 
 const Home = () => {
   return (
-    <div>
-      <Header/>
-      <Carousel />
-      <Service />
-      <About />
-      <Categories />
-      <Courses />
-      <Team />
-      <Testimonial />
-      <Footer />
-      <BackToTop />
+    <div id="page-top">
+      <div id="wrapper">
+        <div id="content-wrapper" className="d-flex flex-column">
+          <div id="content">
+            <Header/>
+            <Carousel />
+            <Service />
+            <About />
+            <Categories />
+            <Courses />
+            <Team />
+            <Testimonial />
+            <Footer />
+            <BackToTop />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

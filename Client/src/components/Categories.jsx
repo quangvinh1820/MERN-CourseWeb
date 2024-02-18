@@ -1,4 +1,3 @@
-import images from "../img/image";
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { publicRequest } from "../requestMethod";

@@ -2,6 +2,7 @@ const Course = require('../models/Course.js');
 
 class CoursesController {
     createCourse(req, res, next) {
+        req.body.image = `https://i.ytimg.com/vi/${req.body.videoId}/hqdefault.jpg`
         const newCourse = new Course(req.body);
         newCourse.save()
             .then(savedCourse => res.status(200).json(savedCourse))

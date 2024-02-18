@@ -5,23 +5,19 @@ const Slugify = require('../middlewares/Slugify');
 const Schema = mongoose.Schema;
 
 const Course = new Schema({
-    TenKhoa: { type: String, required: true },
-    moTa: { type: String, required: true },
-    Nhom: { type: String, required: true },
-    Hinh: { type: String, required: true },
-    BaiGiang: [
+    nameCourse: { type: String },
+    description: { type: String },
+    image: { type: String },
+    playlist: [
         {
-        Ten: { type: String, required: true },
-        Mota: { type: String, required: true },
-        video: { type: String, required: true },
-        BaiTap: { type: String, required: true },
+        name: { type: String },
+        des: { type: String },
+        video: { type: String }
         }
     ],
-    Ma_so: { type: String, required: true },
-    Gia: { type: String, required: true },
-    Tacgia: { type: String, required: true },
-    Thoiluong: { type: String, required: true },
-    gioithieu: { type: String, required: true },
+    price: { type: String },
+    author: { type: String },
+    paymentDes: { type: String },
 }, {
     timestamps: true
 });

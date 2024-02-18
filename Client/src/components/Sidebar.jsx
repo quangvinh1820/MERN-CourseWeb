@@ -1,5 +1,4 @@
-import rocket from '../img/undraw_rocket.svg';
-const Nav = () => {
+const Sidebar = () => {
     return (
         <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -91,7 +90,6 @@ const Nav = () => {
             </div>
 
             <div className="sidebar-card d-none d-lg-flex">
-                <img className="sidebar-card-illustration mb-2" src={rocket} alt="..."/>
                 <p className="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a className="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>
@@ -99,4 +97,4 @@ const Nav = () => {
     );
 };
 
-export default Nav;
+export default Sidebar;

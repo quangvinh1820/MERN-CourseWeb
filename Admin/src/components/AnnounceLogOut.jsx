@@ -1,4 +1,15 @@
+import { useNavigate } from "react-router-dom";
+import { exitLgout } from "../redux/apiCalls";
+import { useDispatch } from "react-redux";
+
 const AnnounceLogOut = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const handleLogout = (e) => {
+        e.preventDefault();
+        exitLgout(dispatch);
+        navigate('/login');
+    };
     return (
         <div className="modal fade" id="logoutModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -13,7 +24,11 @@ const AnnounceLogOut = () => {
                     <div className="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div className="modal-footer">
                         <button className="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a className="btn btn-primary" href="login">Logout</a>
+                        <button
+                        className="btn btn-primary"
+                        onClick={handleLogout}
+                        >Logout
+                        </button>
                     </div>
                 </div>
             </div>
